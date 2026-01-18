@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeoStore — Product</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/style.css" />
+  <!-- Если есть отдельный файл для product -->
+  <link rel="stylesheet" href="./css/product.css" />
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+
+  <div class="header-top">
+    <div class="container header-top-inner">
+
+      <div class="header-left">
+        <a href="index.html" style="text-decoration:none; color:inherit;">
+          <div class="logo">
+            <span class="logo-red">Neo</span><span class="logo-black">Store</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="header-center">
+        <div class="header-search">
+          <input type="text" placeholder="Search works on home page" disabled />
+          <button class="search-btn" disabled style="opacity:.6; cursor:not-allowed;">Search</button>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <button class="action-btn favorite-btn" type="button">❤️ <span>0</span></button>
+        <a href="cart.html" class="action-btn cart-btn">🛒 <span>0</span></a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="header-bottom">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="nav-link">← Back to store</a>
+        <a href="#" class="nav-link active">Product</a>
+      </nav>
+    </div>
+  </div>
+
+</header>
+
+<!-- PRODUCT -->
+<section class="products">
+  <div class="container">
+
+    <div class="products-head">
+      <h2 id="p-title" class="products-title">Product</h2>
+      <p id="p-subtitle" class="products-subtitle">Choose configuration and add to cart</p>
+    </div>
+
+    <!-- Not found -->
+    <div id="p-not-found" class="drawer-empty" style="display:none;">
+      Product not found.
+      <div style="margin-top:14px;">
+        <a class="btn btn-red" href="index.html" style="display:inline-block; text-decoration:none;">
+          Back to store
+        </a>
+      </div>
+    </div>
+
+    <div id="p-wrap" style="display:grid; grid-template-columns: 1fr 1fr; gap:24px; align-items:start;">
+
+      <!-- Left: image -->
+      <div class="card" style="border:1px solid #eee; border-radius:20px; padding:20px; background:#fff;">
+        <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start;">
+          <div>
+            <div id="p-badge" class="hero-badge" style="margin:0;">Featured</div>
+          </div>
+          <button id="p-fav" class="fav-card-btn" type="button" aria-label="Favorite" style="position:static;">
+            ❤
+          </button>
+        </div>
+
+        <img id="p-img" src="" alt="" style="width:100%; height:320px; object-fit:contain; margin-top:14px;" />
+      </div>
+
+      <!-- Right: info -->
+      <div class="card" style="border:1px solid #eee; border-radius:20px; padding:20px; background:#fff;">
+        <h3 id="p-name" style="font-size:20px; font-weight:800;"></h3>
+
+        <div style="margin-top:10px; font-size:20px; font-weight:800;">
+          <span id="p-price">$0</span>
+          <span id="p-old" class="old-price" style="display:none;"></span>
+        </div>
+
+        <div id="p-options" class="product-options" style="margin-top:18px;"></div>
+
+        <p id="p-hint" class="option-hint" hidden>Please select options</p>
+
+        <button id="p-add" class="add-to-cart-btn" type="button" style="margin-top:16px;">
+          Add to cart
+        </button>
+
+        <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a href="index.html" class="btn btn-outline" style="text-decoration:none; display:inline-flex; align-items:center;">
+            Back
+          </a>
+          <a href="cart.html" class="btn btn-red" style="text-decoration:none; display:inline-flex; align-items:center;">
+            Go to cart
+          </a>
+        </div>
+
+        <p style="margin-top:12px; font-size:12px; color:#777;">
+          Portfolio demo. Options are saved in cart by key.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-inner">
+
+    <div class="footer-brand">
+      <div class="logo footer-logo">
+        <span class="logo-red">Neo</span><span class="logo-black">Store</span>
+      </div>
+      <p class="footer-desc">
+        Frontend portfolio project.<br>
+        Apple-style tech store interface.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Store</h4>
+      <a class="footer-link" href="index.html" style="text-decoration:none;">All products</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Our contacts</h4>
+      <p class="footer-contact">📍 5th Avenue, New York, USA</p>
+      <p class="footer-contact">📞 +1 (234) 567-89-00</p>
+      <p class="footer-contact">✉️ support@neostore.com</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p>© 2025 NeoStore. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div id="toast" class="toast">Added</div>
+
+<!-- Favorites Drawer (same as index) -->
+<div id="fav-overlay" class="drawer-overlay" hidden></div>
+
+<aside id="fav-drawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h3>Favorites</h3>
+    <button id="fav-close" class="drawer-close" type="button" aria-label="Close">✕</button>
+  </div>
+
+  <div id="fav-list" class="drawer-content"></div>
+
+  <div class="drawer-footer">
+    <button id="fav-clear" class="drawer-clear" type="button">Clear all</button>
+  </div>
+</aside>
+
+<!-- JS -->
+<script type="module" src="./js/ui.js"></script>
+<script type="module" src="./js/cart.js"></script>
+<script type="module" src="./js/favorites.js"></script>
+<script type="module" src="./js/product.js"></script>
+
+</body>
+</html>
